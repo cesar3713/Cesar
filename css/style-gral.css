@@ -30,11 +30,11 @@
     font-family: Inter, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* Z-INDEX :         1ro: nav__enlaces ------ 1000
-                     2do:       
-                     3ro:
+/* Z-INDEX :         1ro: cursor__ball ------ 2000
+                     2do: 
+                     3ro: nav__enlaces ------ 1000 
                      4to:
-                     5to:                            */
+                     5to:                                                */
 
 html
 {
@@ -57,6 +57,31 @@ img
 {
     color: white;
     background-color: rgb(70, 70, 70);
+}
+
+/*Cursor*/
+.cursor 
+{
+    pointer-events: none;
+}
+
+.cursor__ball 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    mix-blend-mode: difference;
+    z-index: 2000;
+}
+
+circle 
+{
+    fill: #f7f8fa;
+}
+
+.oculto
+{
+    opacity: 0;
 }
 
 /*Enlaces de navegacion*/
@@ -91,7 +116,7 @@ img
 
 .nav__enlaces:hover
 {
-    font-weight: bolder;
+    font-weight: bold;
     transition: all .3s;
     font-size: calc(0.51em + 0.4vw);
 }
@@ -131,3 +156,6 @@ img
     -ms-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
 }
+
+
+

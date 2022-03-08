@@ -9,9 +9,28 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style-gral.css">
 
+    <script defer src="js/TweenMax.min.js"></script>
+    <script defer src="js/cursor.js"></script>
+
 </head>
 <body>
+
+    <!--Cursor-->
+    <div class="cursor">
+        <div class="cursor__ball cursor__ball--big ">
+            <svg height="30" width="30">
+                <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+            </svg>
+        </div>
+        
+        <div class="cursor__ball cursor__ball--small">
+            <svg height="10" width="10">
+                <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+            </svg>
+        </div>
+    </div>
     
+    <!--Nav Enlaces-->
     <nav>
 
         <a href="index.html" class="nav__enlaces works">WORKS</a>
@@ -23,6 +42,8 @@
         <p class="nav__enlaces fecha">2022</p>
 
     </nav>
+
+    
 
 </body>
 </html>
