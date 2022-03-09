@@ -1,3 +1,5 @@
+'use strict'
+
 function isTouchDevice() {
 	return (('ontouchstart' in window) ||
 			  (navigator.maxTouchPoints > 0) ||
@@ -11,18 +13,24 @@ if (!isTouch){
     const bigBall = document.querySelector('.cursor__ball--big');          //////Circulo grande//
     const smallBall = document.querySelector('.cursor__ball--small');   
 
+    /*Movimiento de las figuras segun movimiento de cursor*/
     function onMouseMove(e) {
         TweenMax.to(bigBall, .4, {
-          x: e.clientX - 15,
-          y: e.clientY - 12.5
+          x: e.clientX-24,
+          y: e.clientY -24
         })
         TweenMax.to(smallBall, .1, {
-          x: e.clientX - 5,
-          y: e.clientY - 7
+          x: e.clientX-4,
+          y: e.clientY-4
         })
     }
-
+    
     document.body.addEventListener('mousemove', onMouseMove);
+    /**/
+
+    /*Ocultar cursor al salir del sitio web*/
+    bigBall.classList.add('oculto');
+    smallBall.classList.add('oculto');
 
     const mouseDentro = () => {
         bigBall.classList.remove("oculto");
@@ -35,5 +43,43 @@ if (!isTouch){
 
     document.addEventListener("mouseenter",mouseDentro);
     document.addEventListener("mouseleave",mouseFuera);
+    /* */
 
+    /*Funciones, variables y constantes para crear efecto de cursor hover sobre nav__enlaces */
+
+    const hoverworks = document.querySelector('.works');
+    const hoverabout = document.querySelector('.about');
+    const hovercontact = document.querySelector('.contact');
+    const hoverfecha = document.querySelector('.fecha');
+
+    /*Hover sobre nav__enlaces: .works .about .contact */
+    function onMouseHoverNavEnlace() {
+      TweenMax.to(bigBall, .3, {
+        scale: 2,
+        mixBlendMode: 'difference',
+        background: 'white'
+        
+      })
+      smallBall.classList.add("oculto")
+    }
+    function onMouseHoverOutNavEnlace() {
+      TweenMax.to(bigBall, .3, {
+        scale: 1,
+        background: 'none',
+        mixBlendMode: 'normal'
+        
+      })
+      smallBall.classList.remove("oculto")
+    }
+
+    hoverworks.addEventListener('mouseenter', onMouseHoverNavEnlace)
+    hoverworks.addEventListener('mouseleave', onMouseHoverOutNavEnlace)
+
+    hoverabout.addEventListener('mouseenter', onMouseHoverNavEnlace)
+    hoverabout.addEventListener('mouseleave', onMouseHoverOutNavEnlace)
+
+    hovercontact.addEventListener('mouseenter', onMouseHoverNavEnlace)
+    hovercontact.addEventListener('mouseleave', onMouseHoverOutNavEnlace)
+
+    
 }

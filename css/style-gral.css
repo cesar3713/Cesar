@@ -30,8 +30,8 @@
     font-family: Inter, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* Z-INDEX :         1ro: cursor__ball ------ 2000
-                     2do: 
+/* Z-INDEX :         1ro: cursor__ball--small ------ 2000
+                     2do: cursor__ball--big ------ 1800
                      3ro: nav__enlaces ------ 1000 
                      4to:
                      5to:                                                */
@@ -45,6 +45,7 @@ body
 {
     background-color: #F4F6FB;
     width: 100%;
+    cursor: none;
 }
 
 img 
@@ -53,41 +54,75 @@ img
     height: auto;
 }
 
-::selection 
+/*::selection 
 {
     color: white;
     background-color: rgb(70, 70, 70);
-}
+}*/
 
 /*Cursor*/
-.cursor 
-{
-    pointer-events: none;
-}
-
 .cursor__ball 
 {
     position: fixed;
     top: 0;
     left: 0;
-    mix-blend-mode: difference;
+
+    pointer-events: none;
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.cursor__ball--big
+{
+    border: 1px solid black;
+
+    width: 48px;
+    height: 48px;
+
+    background: none;
+
+    transition: .2s ease-out;
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    -ms-transition: .2s ease-out;
+    -o-transition: .2s ease-out;
+
+    z-index: 1800;
+}
+
+.cursor__ball--small
+{
+    width: 8px;
+    height: 8px;
+
+    background: black;
+
+    transition: ease-out 0s;
+    -webkit-transition: ease-out 0s;
+    -moz-transition: ease-out 0s;
+    -ms-transition: ease-out 0s;
+    -o-transition: ease-out 0s;
+
     z-index: 2000;
 }
 
-circle 
-{
-    fill: #f7f8fa;
-}
 
 .oculto
 {
     opacity: 0;
 }
+/**/
 
 /*Enlaces de navegacion*/
 .nav__enlaces
 {
     position: fixed;
+
+    border: none;
 
     text-transform: uppercase;
     text-decoration: none;
@@ -100,23 +135,17 @@ circle
     letter-spacing: 0.06510416666666667vw;
     line-height: 1.3;
 
-    border: none;
-    padding:  0.6510416666666666vw;
-
-    border-radius: 0.3255208333333333vw;
-    -webkit-border-radius: 0.3255208333333333vw;
-    -moz-border-radius: 0.3255208333333333vw;
-    -ms-border-radius: 0.3255208333333333vw;
-    -o-border-radius: 0.3255208333333333vw;
+    padding: 0;
 
     transition: all .3s;
+
+    cursor: none;
 
     z-index: 1000;
 }
 
 .nav__enlaces:hover
 {
-    font-weight: bold;
     transition: all .3s;
     font-size: calc(0.51em + 0.4vw);
 }
@@ -139,6 +168,15 @@ circle
     -o-transform: rotate(90deg);
 }
 
+.about:hover
+{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+}
+
 .contact
 {
     bottom: 9%;
@@ -156,6 +194,13 @@ circle
     -ms-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
 }
+/**/
 
+/*Seccion Inicio*/
+.inicio
+{
+    width: 100%;
+    height: 100vh;
+}
 
 
