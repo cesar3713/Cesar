@@ -51,6 +51,7 @@ if (!isTouch){
     const hoverabout = document.querySelector('.about');
     const hovercontact = document.querySelector('.contact');
     const hoverfecha = document.querySelector('.fecha');
+    const hovermusica = document.querySelector('.musica');
 
     /*Hover sobre nav__enlaces: .works .about .contact */
     function onMouseHoverNavEnlace() {
@@ -81,5 +82,27 @@ if (!isTouch){
     hovercontact.addEventListener('mouseenter', onMouseHoverNavEnlace)
     hovercontact.addEventListener('mouseleave', onMouseHoverOutNavEnlace)
 
+    /*Hover sobre nav__enlace .musica */
+    function onMouseHoverMusica() {
+      TweenMax.to(bigBall, .3, {
+        scale: 1,
+        mixBlendMode: 'difference',
+        background: 'white'
+        
+      })
+      smallBall.classList.add("oculto")
+    }
+    function onMouseHoverOutMusica() {
+      TweenMax.to(bigBall, .3, {
+        scale: 1,
+        background: 'none',
+        mixBlendMode: 'normal'
+        
+      })
+      smallBall.classList.remove("oculto")
+    }
+
+    hovermusica.addEventListener('mouseenter', onMouseHoverMusica)
+    hovermusica.addEventListener('mouseleave', onMouseHoverOutMusica)
     
 }
